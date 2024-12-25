@@ -6,11 +6,11 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 12:48:19 by biniesta          #+#    #+#             */
-/*   Updated: 2024/11/01 15:58:54 by biniesta         ###   ########.fr       */
+/*   Updated: 2024/12/25 19:13:03 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	ft_puthex(unsigned int num)
 {

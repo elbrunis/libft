@@ -6,11 +6,11 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 13:53:55 by biniesta          #+#    #+#             */
-/*   Updated: 2024/12/25 15:24:29 by biniesta         ###   ########.fr       */
+/*   Updated: 2024/12/25 19:13:47 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 char	*free_and_join(char *save, char *read)
 {

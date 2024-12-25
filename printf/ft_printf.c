@@ -6,11 +6,11 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 17:12:55 by biniesta          #+#    #+#             */
-/*   Updated: 2024/11/02 00:59:27 by biniesta         ###   ########.fr       */
+/*   Updated: 2024/12/25 19:12:34 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 static int	put_lttr(int c)
 {

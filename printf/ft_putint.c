@@ -6,11 +6,11 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 19:18:58 by biniesta          #+#    #+#             */
-/*   Updated: 2024/11/01 18:54:53 by biniesta         ###   ########.fr       */
+/*   Updated: 2024/12/25 19:13:09 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	ft_putint(int num)
 {

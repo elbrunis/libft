@@ -1,55 +1,45 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/10/05 21:32:21 by biniesta          #+#    #+#              #
-#    Updated: 2024/12/25 14:30:16 by biniesta         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I
-
-# Directorios
-SRCS_DIR = .
-LIBFT_DIR = libft
-GNL_DIR = get_next_line
-PRINTF_DIR = printf
-
-# Archivos fuente
-SRCS = $(wildcard $(LIBFT_DIR)/**/*.c) \
-       $(wildcard $(GNL_DIR)/*.c) \
-       $(wildcard $(PRINTF_DIR)/*.c)
-
-# Archivos objetos
-OBJS = $(SRCS:.c=.o)
-
-# Nombre de la librería estática
 NAME = libft.a
 
-# Regla principal: generar la librería estática
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+
+SRC_DIR = ./libft
+PRINTF_DIR = ./printf
+GNL_DIR = ./getnextline
+OBJ_DIR = ./obj
+
+SRC_FILES = \
+    $(wildcard $(SRC_DIR)/is/*.c) \
+    $(wildcard $(SRC_DIR)/lst/*.c) \
+    $(wildcard $(SRC_DIR)/mem/*.c) \
+    $(wildcard $(SRC_DIR)/put/*.c) \
+    $(wildcard $(SRC_DIR)/str/*.c) \
+    $(wildcard $(PRINTF_DIR)/*.c) \
+    $(wildcard $(GNL_DIR)/*.c)
+
+OBJ_FILES = $(SRC_FILES:%.c=$(OBJ_DIR)/%.o)
+
 all: $(NAME)
 
-# Crear la librería estática
-$(NAME): $(OBJS)
-	ar rcs $@ $^
+$(NAME): $(OBJ_FILES)
+	@ar rcs $(NAME) $(OBJ_FILES)
+	@echo "[INFO] Librería $(NAME) creada correctamente."
 
-# Regla para compilar los archivos .o
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -I. -c $< -o $@
 
-# Limpiar los archivos objeto
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
+
 clean:
-	rm -f $(OBJS)
+	@rm -rf $(OBJ_DIR)
+	@echo "[INFO] Archivos objeto eliminados."
 
-# Limpiar todo (archivos objeto y librería)
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@echo "[INFO] Librería $(NAME) eliminada."
 
-# Regla para reconstruir todo
 re: fclean all
 
 .PHONY: all clean fclean re
