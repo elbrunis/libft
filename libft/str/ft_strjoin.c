@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 13:36:13 by biniesta          #+#    #+#             */
-/*   Updated: 2024/10/05 14:47:29 by biniesta         ###   ########.fr       */
+/*   Updated: 2024/12/25 15:19:21 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	str[i + j] = '\0';
 	return (str);
 }
-// int main()
-// {
-//     char str1[] = "Hola";
-//     char str2[] = " mundo";
-//     char *result = ft_strjoin(str1, str2);
-//     printf("%s\n", result);
-//     free(result);
-//     return(0);
-// }

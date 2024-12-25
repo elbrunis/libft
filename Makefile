@@ -6,46 +6,50 @@
 #    By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/05 21:32:21 by biniesta          #+#    #+#              #
-#    Updated: 2024/10/13 19:55:12 by biniesta         ###   ########.fr        #
+#    Updated: 2024/12/25 14:30:16 by biniesta         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -I
+
+# Directorios
+SRCS_DIR = .
+LIBFT_DIR = libft
+GNL_DIR = get_next_line
+PRINTF_DIR = printf
+
+# Archivos fuente
+SRCS = $(wildcard $(LIBFT_DIR)/**/*.c) \
+       $(wildcard $(GNL_DIR)/*.c) \
+       $(wildcard $(PRINTF_DIR)/*.c)
+
+# Archivos objetos
+OBJS = $(SRCS:.c=.o)
+
+# Nombre de la librería estática
 NAME = libft.a
 
-CFLAGS = -Wall -Werror -Wextra
-AR = ar rcs
-
-SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
-      ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c \
-      ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c \
-      ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c \
-      ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c \
-      ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
-      ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c 
-
-OBJ = $(SRC:.c=.o)
-
-
-BONUS = ft_lstadd_back.c ft_lstadd_front.c ft_lstlast.c ft_lstnew.c ft_lstsize.c
-BONUS_OBJ = $(BONUS:.c=.o)
-
-%.o: %.c libft.h
-	cc $(CFLAGS) -c $< -o $@
-
+# Regla principal: generar la librería estática
 all: $(NAME)
 
-bonus: $(BONUS_OBJ)
-	$(AR) $(NAME) $(BONUS_OBJ)
-	
-$(NAME): $(OBJ)
-	$(AR) $(NAME) $(OBJ)
+# Crear la librería estática
+$(NAME): $(OBJS)
+	ar rcs $@ $^
 
+# Regla para compilar los archivos .o
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Limpiar los archivos objeto
 clean:
-	rm -rf $(OBJ) $(BONUS_OBJ)
+	rm -f $(OBJS)
 
+# Limpiar todo (archivos objeto y librería)
 fclean: clean
-	rm -rf $(NAME)
+	rm -f $(NAME)
 
+# Regla para reconstruir todo
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re

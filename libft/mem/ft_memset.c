@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 19:21:06 by biniesta          #+#    #+#             */
-/*   Updated: 2024/10/05 14:10:15 by biniesta         ###   ########.fr       */
+/*   Updated: 2024/12/25 15:22:45 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,3 @@ void	*ft_memset(void *b, int c, size_t len)
 	}
 	return (b);
 }
-// int	main(void)
-// {
-// 	char	str[] = "dbff";
-// 	void	*ptr;
-
-// 	ptr = ft_memset(str, 'x', 3);
-// 	printf("%s\n", (unsigned char *)ptr);
-// 	return (0);
-// }
